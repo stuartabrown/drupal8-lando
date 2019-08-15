@@ -1,53 +1,42 @@
 language: php
-dist: xenial
-
-# Adjust the version of PHP to match your production environment.
-# Making this version number greater than the production environment can have unintended consequences
-# including a non-functional prod environment.
-php: "7.2"
-
-env:
-  global:
-    - COMPOSER_BIN=$TRAVIS_BUILD_DIR/vendor/bin
-    - BLT_DIR=$TRAVIS_BUILD_DIR/vendor/acquia/blt
-
-cache:
-  directories:
-    - "$HOME/.composer/cache"
-    - "$HOME/.drush/cache"
-  # Cache front end dependencies to dramatically improve build time.
-  # - "docroot/themes/custom/mytheme/node_modules"
-  # - "docroot/themes/custom/mytheme/bower_components"
-
+php:
+- '7.0'
 services:
-- mysql
+- docker
+
+# Install lando
+before_install:
+  - sudo apt-get -y update || true
+  - sudo apt-get -y install cgroup-bin curl
+  - curl -fsSL -o /tmp/lando-latest.deb http://installer.kalabox.io/lando-latest-dev.deb
+  - sudo dpkg -i /tmp/lando-latest.deb
+  - lando version
+
+# Do the lando magic
+script:
+
+  # Get our built out lando site running on travis
+  - lando start -- -v
+  - lando composer install
+  # Do needed things to get this repo transformed to what pantheon expects
+  # - lando composer prepare-for-pantheon
+
+  # Run non-db required tests eg linting/code standards/unit tests
+  # Lint the codez
+  - lando phplint
+  - lando blt deploy
+
+  # Check code standards
+  # - lando phpcs --config-set installed_paths /app/vendor/drupal/coder/coder_sniffer
+  # - lando phpcs -n --report=full --standard=Drupal --ignore=*.tpl.php --extensions=install,module,php,inc web/modules web/themes web/profiles
+
+  # Run unit tests.
+  # - lando composer drupal-unit-tests
 
 addons:
   ssh_known_hosts:
   - svn-6182.devcloud.hosting.acquia.com
   chrome: stable
-
-# @see https://docs.travis-ci.com/user/notifications
-# notifications:
-#   - hipchat: [api token]@[room id or name]
-#   - slack: '<account>:<token>#[channel]'
-
-before_install:
-  # Disable xdebug.
-  - phpenv config-rm xdebug.ini
-  - composer self-update
-  - composer install
-  # Exit build early if only documentation was changed in a Pull Request.
-  - source ${BLT_DIR}/scripts/travis/exit_early
-
-install:
-  - source ${BLT_DIR}/scripts/travis/setup_environment
-  - source ${BLT_DIR}/scripts/travis/setup_project
-
-script:
-  # Uncomment these lines to test database updates using live content.
-  # - blt drupal:sync:default:site
-  - source ${BLT_DIR}/scripts/travis/run_tests
 
 deploy:
    - provider: script
