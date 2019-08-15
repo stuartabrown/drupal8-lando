@@ -1,0 +1,12 @@
+name: stuartupdate
+type: theme
+description: 'An UPDATED theme from stuart.'
+core: 8.x
+libraries:
+  - stuatupdate/global-styling
+base theme: classy
+regions:
+  header: Header
+  content: Content
+  sidebar_first: 'Sidebar first'
+  footer: Footer

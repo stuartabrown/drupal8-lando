@@ -1,0 +1,136 @@
+# Ignore configuration files that may contain sensitive information.
+lightning/local.settings.php
+lightning/local.drush.yml
+lightning/local.site.yml
+lightning/local.services.yml
+lightning/tests/behat/local.yml
+lightning/box/local.config.yml
+lightning/*.local
+lightning/local.blt.yml
+
+# Ignore drupal core.
+lightning/docroot/core
+
+# Ignore paths that contain user-generated content.
+lightning/docroot/sites/*/files
+lightning//files-private
+lightning/docroot/sites/*/private
+
+# Ignore contrib modules. These should be created during build process.
+lightning/docroot/modules/contrib
+lightning/docroot/themes/contrib
+lightning/docroot/profiles/contrib
+lightning/docroot/libraries
+lightning/drush/Commands
+
+# Ignore custom theme build artifacts
+# lightning/docroot/themes/custom/*/node_modules
+# lightning/docroot/themes/custom/*/css
+# lightning/docroot/themes/custom/*/styleguide
+
+# Ignore build artifacts
+lightning/deployment_identifier
+lightning/deploy
+lightning/bin/*
+lightning/tmp
+lightning/reports
+
+# OS X
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+lightning/._*
+
+# Files that might appear on external disk
+lightning/.Spotlight-V100
+lightning/.Trashes
+
+# Windows image file caches
+lightning/Thumbs.db
+lightning/ehthumbs.db
+
+# Folder config file
+lightning/Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Eclipse
+*.pydevproject
+.project
+.metadata
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpathk
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# User-specific stuff:
+.idea/
+
+#XHProf
+xhprof_*
+
+#Composer vendor
+lightning/vendor/
+lightning/vendor/.git
+
+#Sass
+lightning/.sass-cache
+lightning/*.css.map
+
+#Netbeans IDE
+nbproject
+nbproject/*
+
+# DrupalVM
+.vagrant/
+
+# DevDesktop
+*.dd
+
+#Exports
+lightning/*.gz
+lightning/*.sql
+lightning/*.zip
+
+# PHPStorm
+atlassian-ide-plugin.xml
+
+#NPM
+npm-debug.log
+
+# Drush 9 Checksums
+lightning/drush/sites/.checksums
+
+# Deprecation detector rules
+.rules

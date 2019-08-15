@@ -1,0 +1,12 @@
+# staging is referred to as test
+test:
+  host: free-7023.devcloud.hosting.acquia.com
+  user: stuartlandolightning.test
+  root: /var/www/html/stuartlandolightning.test/docroot
+  uri: stuartlandolightningyp9jqufcxd.devcloud.acquia-sites.com
+
+dev:
+  host: free-7023.devcloud.hosting.acquia.com
+  user: stuartlandolightning.dev
+  root: /var/www/html/stuartlandolightning.dev/docroot
+  uri: stuartlandolightningsbkclqcs7s.devcloud.acquia-sites.com
