@@ -2,7 +2,6 @@ name: stuartlandolightning
 recipe: drupal8
 config:
   webroot: lightning/docroot
-
 tooling:
   blt:
     service: appserver
