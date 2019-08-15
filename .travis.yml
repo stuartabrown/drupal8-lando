@@ -34,8 +34,7 @@ script:
   # - lando composer drupal-unit-tests
 
 addons:
-  ssh_known_hosts:
-  - svn-6182.devcloud.hosting.acquia.com
+  ssh_known_hosts: svn-6182.devcloud.hosting.acquia.com
   chrome: stable
 
 deploy:
