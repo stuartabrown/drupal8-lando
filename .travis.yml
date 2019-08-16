@@ -32,6 +32,7 @@ script:
   - lando start -v
   - pwd
   - ls -a
+  - cat .lando.yml
 
 
 
