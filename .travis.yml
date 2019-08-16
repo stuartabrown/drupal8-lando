@@ -34,7 +34,9 @@ script:
   - ls -a
   - cat .lando.yml
 
-
+#   # Hook up the Lando command we defined earlier in .lando.yml to the blt executable cli tool wyth a symlink:
+  - lando ssh -u root -c "ln -s /app/lightning/vendor/acquia/blt/bin/blt /usr/bin/blt"
+  - lando blt help
 
 
 
