@@ -64,14 +64,16 @@ script:
   # - lando db-import dump.sql.gz
   # - rm -f dump.sql.gz
   # - lando blt drupal:sync
-  -
+
+  # Hook up the Lando command we defined earlier in .lando.yml to the blt executable cli tool wyth a symlink:
+  - lando ssh -u root -c "ln -s /app/lightning/vendor/acquia/blt/bin/blt /usr/bin/blt"
 
   # This could be potentially problematic if someone adds their own ssh key after we generate one above
   # and before we run the below
   - lando ssh -c "/var/www/.platformsh/bin/platform ssh-key:delete \$(/var/www/.platformsh/bin/platform ssh-keys --format=csv | tail -1 | cut -d ',' -f 1)"
 
   # Check to see if we succeeded
-  - cd docroot
+  # - cd docroot
   - lando drush status && lando drush cr
   - cd ..
 
@@ -80,6 +82,7 @@ script:
 
   # Run non-db required tests eg linting/code standards/unit tests
   # Lint the codez
+  - lando blt help
   - lando phplint
   - lando blt deploy
 
