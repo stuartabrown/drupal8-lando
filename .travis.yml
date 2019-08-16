@@ -8,8 +8,8 @@ php: "7.2"
 
 env:
   global:
-    - COMPOSER_BIN=$TRAVIS_BUILD_DIR/vendor/bin
-    - BLT_DIR=$TRAVIS_BUILD_DIR/vendor/acquia/blt
+    - COMPOSER_BIN=$TRAVIS_BUILD_DIR/lightning/vendor/bin
+    - BLT_DIR=$TRAVIS_BUILD_DIR/lightning/vendor/acquia/blt
 
 cache:
   directories:
