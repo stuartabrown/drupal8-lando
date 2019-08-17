@@ -1,39 +1,39 @@
 # Ignore configuration files that may contain sensitive information.
-lightning/local.settings.php
-lightning/local.drush.yml
-lightning/local.site.yml
-lightning/local.services.yml
-lightning/tests/behat/local.yml
-lightning/box/local.config.yml
-lightning/*.local
-lightning/local.blt.yml
+local.settings.php
+local.drush.yml
+local.site.yml
+local.services.yml
+tests/behat/local.yml
+box/local.config.yml
+*.local
+local.blt.yml
 
 # Ignore drupal core.
-lightning/docroot/core
+docroot/core
 
 # Ignore paths that contain user-generated content.
-lightning/docroot/sites/*/files
-lightning//files-private
-lightning/docroot/sites/*/private
+docroot/sites/*/files
+files-private
+docroot/sites/*/private
 
 # Ignore contrib modules. These should be created during build process.
-lightning/docroot/modules/contrib
-lightning/docroot/themes/contrib
-lightning/docroot/profiles/contrib
-lightning/docroot/libraries
-lightning/drush/Commands
+docroot/modules/contrib
+docroot/themes/contrib
+docroot/profiles/contrib
+docroot/libraries
+drush/Commands
 
 # Ignore custom theme build artifacts
-# lightning/docroot/themes/custom/*/node_modules
-# lightning/docroot/themes/custom/*/css
-# lightning/docroot/themes/custom/*/styleguide
+# docroot/themes/custom/*/node_modules
+# docroot/themes/custom/*/css
+# docroot/themes/custom/*/styleguide
 
 # Ignore build artifacts
-lightning/deployment_identifier
-lightning/deploy
-lightning/bin/*
-lightning/tmp
-lightning/reports
+deployment_identifier
+deploy
+bin/*
+tmp
+reports
 
 # OS X
 .DS_Store
@@ -41,18 +41,18 @@ lightning/reports
 .LSOverride
 
 # Thumbnails
-lightning/._*
+._*
 
 # Files that might appear on external disk
-lightning/.Spotlight-V100
-lightning/.Trashes
+.Spotlight-V100
+.Trashes
 
 # Windows image file caches
-lightning/Thumbs.db
-lightning/ehthumbs.db
+Thumbs.db
+ehthumbs.db
 
 # Folder config file
-lightning/Desktop.ini
+Desktop.ini
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
@@ -101,12 +101,12 @@ tramp
 xhprof_*
 
 #Composer vendor
-lightning/vendor/
-lightning/vendor/.git
+vendor/
+vendor/.git
 
 #Sass
-lightning/.sass-cache
-lightning/*.css.map
+.sass-cache
+*.css.map
 
 #Netbeans IDE
 nbproject
@@ -119,9 +119,9 @@ nbproject/*
 *.dd
 
 #Exports
-lightning/*.gz
-lightning/*.sql
-lightning/*.zip
+*.gz
+*.sql
+*.zip
 
 # PHPStorm
 atlassian-ide-plugin.xml
@@ -130,7 +130,7 @@ atlassian-ide-plugin.xml
 npm-debug.log
 
 # Drush 9 Checksums
-lightning/drush/sites/.checksums
+drush/sites/.checksums
 
 # Deprecation detector rules
 .rules
